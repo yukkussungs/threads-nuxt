@@ -30,21 +30,29 @@
                 <div class="w-[42px] mx-auto">
                     <div class="absolute ml-4 mt-1 top-0 w-[1px] bg-gray-700 h-full"></div>
                 </div>
+                <div class="bg-black rounded-lg w-[calc(100%-50px)] text-sm w-full font-light">
+                    <div class="py-2 text-gray-300">{{ post.text }}</div>
+                    <img 
+                        v-if="post && post.picture"
+                        class="mx-auto w-full mt-2 pr-2 rounded"
+                        :src="post.picture"
+                    />
+                    <div class="absolute mt-2 w-full ml-2"></div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { useUserStore } from '~/store/user';
+import { useUserStore } from '~/stores/user';
 const userStore = useUserStore();
 
 const runtimeConfig = useRuntimeConfig();
 let isMenu = ref(false)
 let isLike = ref(false)
 let isDeleting = ref(false)
+
+const emit = defineEmits(['isDelted'])
+const props = defineProps({ post: Object })
 </script>
-
-<style lang="sass" scoped>
-
-</style>

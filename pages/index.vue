@@ -3,9 +3,11 @@
         <div class="w-full overflow-auto" id="IndexPage">
             <div class="mx-auto max-w-[500px] overflow-hidden">
                 <div id="Posts" class="px-4 max-w-[600px] mx-auto">
-                    <div class="text-white" v-if="isPosts" v-for="post in posts" :key="post">
-                        {{ post }}
-                    </div>
+                    <template v-if="isPosts">
+                        <div v-for="post in posts" :key="post">
+                            <Post :post="post" @isDeleted="posts = []" />
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
