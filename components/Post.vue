@@ -37,10 +37,52 @@
                         class="mx-auto w-full mt-2 pr-2 rounded"
                         :src="post.picture"
                     />
-                    <div class="absolute mt-2 w-full ml-2"></div>
+                    <div class="absolute mt-2 w-full ml-2">
+                        <button 
+                            :disabled="isLike"
+                            @click="likesFunc()" 
+                            class="flex items-center gap-1"
+                        >
+                            <Icon 
+                                v-if="!hasLikedComputed"
+                                class="p-1 text-white hover:bg-gray-800 rounded-full cursor-pointer" 
+                                name="mdi:cards-heart-outline" 
+                                size="28"
+                            />
+                            <Icon 
+                                v-else
+                                class="p-1 text-red-500 hover:bg-gray-800 rounded-full cursor-pointer" 
+                                name="mdi:cards-heart" 
+                                size="28"
+                            />
+                        </button>
+                        <div class="relative text-sm text-gray-500">
+                            <div> 
+                                <span v-if="!isLike">{{ 4 }}</span>
+                                <span v-else>
+                                    <Icon name="eos-icons:bubble-loading" color="#ffffff" size="13"/>
+                                </span>
+                                likes
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="relative inline-block text-gray-500 pt-1 pb-1.5">
+            <div class="flex items-center">
+                <div  class="flex items-center flex-wrap text-white gap-1 w-[42px]">
+                    <div class="flex gap-0.5">
+                        <img class="rounded-full h-[14px] mt-2" src="https://picsum.photos/id/202/50">
+                        <img class="rounded-full h-[17px]" src="https://picsum.photos/id/223/50">
+                    </div>
+                    <div class="flex items-center">
+                        <img class="rounded-full h-[11px] ml-4" src="https://picsum.photos/id/99/50">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-[1px] bg-gray-800 w-full mt-3"></div>
     </div>
 </template>
 
