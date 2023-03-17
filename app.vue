@@ -3,6 +3,7 @@
     <NuxtLayout>
       <NuxtPage />
       <CreatePost :class="createPostClasses()"/>
+      <Modal :class="modalClasses()"/>
     </NuxtLayout>
   </div>
 </template>
@@ -13,5 +14,9 @@ const userStore = useUserStore();
 const createPostClasses = () => { return [
     { 'max-h-[100vh] transition-all duration-200 ease-in visible': userStore.isMenuOverlay },
     { 'max-h-0 transition-all duration-200 ease-out invisible': !userStore.isMenuOverlay },
+]};
+const modalClasses = () => { return [
+    {'max-h-[100vh] transition-all duration-200 ease-in visible': userStore.isLogoutOverlay },
+    {'max-h-0 transition-all duration-200 ease-out invisible': !userStore.isLogoutOverlay },
 ]};
 </script>
