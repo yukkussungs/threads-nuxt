@@ -40,6 +40,7 @@
 <script setup>
 const client = useSupabaseClient();
 const user = useSupabaseUser();
+const runtimeConfig = useRuntimeConfig();
 
 
 watchEffect(() => {
