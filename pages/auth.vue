@@ -3,6 +3,7 @@
         <div class="w-full">
             <div class="w-full flex items-center justify-center gap-2.5 p-2">
                 <img class="w-[35px]" src="/threads-logo.png">
+                <div>{{user}}</div>
                 <span class="font-bold text-2xl text-white">Threads</span>
             </div>
 
@@ -40,10 +41,10 @@
 const client = useSupabaseClient();
 const user = useSupabaseUser();
 
+
 watchEffect(() => {
     if (user.value) {
-        console.log(user.value);
-        // return navigateTo('/')
+        return navigateTo('/')
     }
 })
 
@@ -52,7 +53,6 @@ const login = async (prov) => {
         provider: prov,
         redirectTo: window.location.origin
     })
-
-    if (error) console.log(error)
+    if (error) console.log(error);
 }
 </script>

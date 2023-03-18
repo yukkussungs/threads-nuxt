@@ -5,7 +5,7 @@
                 <div id="Posts" class="px-4 max-w-[600px] mx-auto">
                     <template v-if="isPosts">
                         <div v-for="post in posts" :key="post">
-                            <Post :post="post" @isDeleted="posts = []" />
+                            <Post :post="post" @isDeleted="posts = userStore.getAllPosts()" />
                         </div>
                     </template>
                     <template v-else>
@@ -44,6 +44,7 @@ let isLoading = ref(false)
 
 
 watchEffect(() => {
+    console.log('user : ', user);
     if (!user.value) {
         return navigateTo('/auth')
     }
