@@ -13,7 +13,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      bucketUrl: process.env.BUCKET_URL
+      bucketUrl: process.env.BUCKET_URL,
+      appUrl: process.env.BASE_APP_URL,
     }
   },
   devtools: { enabled: false },
