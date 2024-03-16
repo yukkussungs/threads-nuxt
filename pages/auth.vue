@@ -45,14 +45,13 @@ const runtimeConfig = useRuntimeConfig();
 
 watchEffect(() => {
     if (user.value) {
-        return navigateTo('/')
+        return navigateTo('')
     }
 })
 
 const login = async (prov) => {
     const { data, error } = await client.auth.signInWithOAuth({
-        provider: prov,
-        redirectTo: runtimeConfig.public.appUrl
+        provider: prov
     })
     if (error) console.log(error);
 }
