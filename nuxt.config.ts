@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       bucketUrl: process.env.BUCKET_URL,
-      appUrl: process.env.BASE_APP_URL,
+      baseUrl: process.env.BASE_URL || 'http://localhost:3000'
     }
   },
   devtools: { enabled: false },
